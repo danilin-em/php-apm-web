@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  app:
+    image: danilinem/php-apm-web:latest
+    build: ./
+    volumes:
+      - .:/var/www/html
+      - ./db:/var/php/apm/db
+    environment:
+      PDO_DSN: 'sqlite:/var/php/apm/db/apm.sqlite'
+    ports:
+      - "8089:8080"

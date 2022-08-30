@@ -24,4 +24,8 @@
    - return new PDO("sqlite:/var/php/apm/db/events");
    - return new PDO("mysql:host=localhost;dbname=apm", "apm", "apm");
 */
-return new PDO("sqlite:/var/php/apm/db/events");
+return new PDO(
+  getenv('PDO_DSN'),
+  getenv('PDO_USERNAME'),
+  getenv('PDO_PASSWORD')
+);
